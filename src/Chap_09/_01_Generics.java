@@ -10,41 +10,42 @@ public class _01_Generics {
 
         printIntArray(iArray);
         printDoubleArray(dArray);
-        printStringArry(sArray);
+        printStringArray(sArray);
 
-        System.out.println("==============");
-
+        System.out.println("==========");
         printAnyArray(iArray);
-        printAnyArray(dArray);
         printAnyArray(sArray);
+        printAnyArray(dArray);
     }
 
-    private static void printStringArry(String[] sArray) {
-        for (String s : sArray) {
-            System.out.print(s+" ");
+    // T : Type
+    private static <T> void printAnyArray(T[] array) {
+        for (T i : array) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+    }
+
+    private static void printStringArray(String[] sArray) {
+        for (String i : sArray) {
+            System.out.print(i+" ");
         }
         System.out.println();
     }
 
     private static void printDoubleArray(Double[] dArray) {
-        for (Double d : dArray) {
-            System.out.print(d + " "); // 1.0, 2.0, 3.0, 4.0, 5.0
+        for (double i : dArray) {
+            System.out.print(i+" ");
         }
         System.out.println();
     }
 
     private static void printIntArray(Integer[] iArray) {
         for (int i : iArray) {
-            System.out.print(i+" "); // 1 2 3 4 5
+            System.out.print(i+ " "); // 1 2 3 4 5
         }
         System.out.println();
     }
 
-    // T : Type, K : Key, V : Value, E: Element
-    private static <T> void printAnyArray(T[] array) {
-        for (T t : array) {
-            System.out.print(t+" "); // 1 2 3 4 5
-        }
-        System.out.println();
-    }
+
 }

@@ -2,7 +2,7 @@ package Chap_09.coffee;
 
 import Chap_09.user.User;
 
-public class CoffeeByUser <T extends User>{
+public class CoffeeByUser <T extends User> {
     public T user;
 
     public CoffeeByUser(T user) {
@@ -10,7 +10,7 @@ public class CoffeeByUser <T extends User>{
     }
 
     public void ready() {
-        System.out.println("커피 준비 완료 : " + user.name);
+        System.out.println("커피 주문 완료 : "+user.name);
         user.addPoint();
     }
 }

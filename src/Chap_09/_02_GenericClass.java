@@ -7,47 +7,60 @@ import Chap_09.user.VIPUser;
 public class _02_GenericClass {
     public static void main(String[] args) {
         // 제네릭 클래스
-        CoffeeByNumber c1 = new CoffeeByNumber(33);
-        c1.ready();
+        CoffeeByNumber coffeeByNumber = new CoffeeByNumber(33);
 
-        CoffeeByNickname c2 = new CoffeeByNickname("Cola");
-        c2.ready();
+        coffeeByNumber.ready();
 
-        CoffeeByName c3 = new CoffeeByName(34);
-        c3.ready();
+        CoffeeByNickname coffeeByNickname = new CoffeeByNickname("짱구");
 
-        CoffeeByName c4 = new CoffeeByName("코카콜라");
-        c4.ready();
+        coffeeByNickname.ready();
 
-        int c3Name=(int)c3.name;
-        System.out.println("주문 고객 번호 : "+c3Name);
+        CoffeeByName coffeeByName = new CoffeeByName(34);
 
-        String c4Name = (String) c4.name;
-        System.out.println("주문 고객 번호 : "+c4Name);
+        coffeeByName.ready();
 
-//        c4Name = (String) c3.name;
+        CoffeeByName coffeeByName2 = new CoffeeByName("뚱이");
 
-        System.out.println("=================");
+        coffeeByName2.ready();
 
-        Coffee<Integer> c5 = new Coffee<>(35);
-        c5.ready();
-        int c5Name=c5.name;
-        System.out.println("주문 고객번호 : "+c5Name);
+        System.out.println("=============");
 
-        Coffee<String> c6 = new Coffee<>("조세호");
-        c6.ready();
-        String c6Name=c6.name;
-        System.out.println("주문 고객번호 : "+c6Name);
+        int c3Name = (int) coffeeByName.name;
+        System.out.println("주문 고객 번호 : " + c3Name);
 
-        System.out.println("===============");
+        String c4Name = (String) coffeeByName2.name;
+        System.out.println("주문 고객 이름 : "+c4Name);
 
-        CoffeeByUser<User> c7 = new CoffeeByUser<>(new User("강호동"));
-        c7.ready();
+//        c4Name = (String) coffeeByName.name;
 
-        CoffeeByUser<User> c8 = new CoffeeByUser<>(new VIPUser("서장훈"));
-        c8.ready();
+        System.out.println("=============");
 
+        Coffee<Integer> integerCoffee = new Coffee<>(34);
+        integerCoffee.ready();
+
+        int c5Name = integerCoffee.name;
+        System.out.println("주문 고객 번호 : "+ c5Name);
+
+        Coffee<String> stringCoffee = new Coffee<>("스펀지밥");
+        stringCoffee.ready();
+
+        System.out.println("=============");
+        CoffeeByUser<User> coffeeByUser7 = new CoffeeByUser<>(new User("흰둥이"));
+        coffeeByUser7.ready();
+
+        CoffeeByUser<User> coffeeByUser8 = new CoffeeByUser<>(new VIPUser("이준영"));
+        coffeeByUser8.ready();
+
+        System.out.println("=============");
+        orderCoffee("키에우안","비엔나");
+        orderCoffee(33, "라떼");
 
 
     }
+
+    public static <T,V> void orderCoffee(T name, V coffee) {
+        System.out.println(coffee+" 준비 완료 : "+ name);
+    }
+
+
 }

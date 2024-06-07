@@ -8,6 +8,6 @@ public class CoffeeByNumber {
     }
 
     public void ready() {
-        System.out.println("커피 준비 완료: "+waitingNumber);
+        System.out.println("커피 준비 완료 : "+ waitingNumber);
     }
 }
