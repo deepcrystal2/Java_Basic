@@ -4,32 +4,34 @@ import Chap_12.clean.CleanThread;
 
 public class _01_Thread {
     public static void main(String[] args) {
-        // 쓰레드 (Thread)
         // 하나의 프로세스 (Process)
-//    cleanBySelf();
+        // 쓰레드 (Thread)
 
-    // 1 3 5 7 9
-//     2 4 6 8 10
+        // 1 3 5 7 9
+        // 2 4 6 8 10
+
+
+
         CleanThread cleanThread = new CleanThread();
-//        cleanThread.run(); // 직원 청소
+//        cleanThread.run();
         cleanThread.start();
 
-        cleanByBoss(); // 사장 청소
+        cleanByBoss();
     }
 
     public static void cleanBySelf() {
-        System.out.println("-- 혼자 청소 시작 --");
-        for (int i = 1; i <= 10; i++) {
-            System.out.println("(혼자)"+ i +"번방 청소 중");
+        System.out.println(" 혼자서 청소 시작 ");
+        for (int i = 1; i <= 10; i+=2) {
+            System.out.println("(혼자) " + i + " 번방 청소 중");
         }
-        System.out.println("-- 혼자 청소 끝 --");
+        System.out.println(" 혼자 청소 끝");
     }
 
     public static void cleanByBoss() {
-        System.out.println("-- 사장 청소 시작 --");
+        System.out.println(" 사장 청소 시작 ");
         for (int i = 1; i <= 10; i+=2) {
-            System.out.println("(사장)"+ i +"번방 청소 중");
+            System.out.println("(사장) " + i + " 번방 청소 중");
         }
-        System.out.println("-- 사장 청소 끝 --");
+        System.out.println(" 사장 청소 끝");
     }
 }

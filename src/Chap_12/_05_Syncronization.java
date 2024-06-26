@@ -2,14 +2,14 @@ package Chap_12;
 
 import Chap_12.clean.Room;
 
-public class _05_Synchronization {
+public class _05_Syncronization {
     public static void main(String[] args) {
         Room room = new Room();
 
-        Runnable cleaner1= new Runnable() {
+        Runnable cleaner1 = new Runnable() {
             @Override
             public void run() {
-                System.out.println("-- 직원1 청소 시작  --");
+                System.out.println(" 직원1 청소 시작 ");
                 for (int i = 1; i <= 5; i ++) {
                     room.clean("직원1");
                     try {
@@ -17,34 +17,29 @@ public class _05_Synchronization {
                     } catch (InterruptedException e) {
                         throw new RuntimeException(e);
                     }
-
-                    if (i == 3) {
-                        throw new RuntimeException("못해먹겠다!!");
-                    }
-
                 }
-                System.out.println("-- 직원1 청소 끝  --");
+                System.out.println(" 직원1 청소 끝 ");
             }
         };
 
-        Runnable cleaner2 = ()  -> {
-            System.out.println("-- 직원2 청소 시작  --");
+        Runnable cleaner2 = () -> {
+            System.out.println(" 직원2 청소 시작 ");
             for (int i = 1; i <= 5; i ++) {
                 room.clean("직원2");
-
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
+
             }
-            System.out.println("-- 직원2 청소 끝  --");
+            System.out.println(" 직원2 청소 끝 ");
         };
 
-        Thread cleanerThread1 = new Thread(cleaner1);
-        Thread cleanerThread2 = new Thread(cleaner2);
+        Thread thread1 = new Thread(cleaner1);
+        Thread thread2 = new Thread(cleaner2);
 
-        cleanerThread1.start();
-        cleanerThread2.start();
+        thread1.start();
+        thread2.start();
     }
 }

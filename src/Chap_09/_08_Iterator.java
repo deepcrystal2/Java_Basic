@@ -20,32 +20,33 @@ public class _08_Iterator {
         }
         System.out.println("==============");
 
-        Iterator<String> it = list.iterator();
-        System.out.println(it.next());
-        System.out.println(it.next());
-        System.out.println(it.next());
-        System.out.println(it.next());
+        Iterator<String> iterator = list.iterator();
+        System.out.println(iterator.next());
+        System.out.println(iterator.next());
+        System.out.println(iterator.next());
+        System.out.println(iterator.next());
 
         System.out.println("==============");
-        it = list.iterator(); // 커서 처음 위치로 이동
 
-        while (it.hasNext()) {
-            System.out.println(it.next());
+        iterator = list.iterator();   // 위치 초기화
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
         }
-        System.out.println("==============");
 
-        it = list.iterator();
+        System.out.println("=============");
 
-        while (it.hasNext()) {
-            String s = it.next();
+        iterator = list.iterator();
+
+        while (iterator.hasNext()) {
+            String s = iterator.next();
             if (s.contains("(알수없음)")) {
-                it.remove(); // 삭제
+                iterator.remove();  // 삭제
             }
         }
 
-        it = list.iterator();
-        while (it.hasNext()) {
-            System.out.println(it.next());
+        iterator = list.iterator();   // 위치 초기화
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
         }
 
         System.out.println("=============");
@@ -54,39 +55,38 @@ public class _08_Iterator {
         set.add("유재석");
         set.add("박명수");
 
-        Iterator<String> itSet = set.iterator();
+        Iterator<String> iterator1 = set.iterator();
 
-        while (itSet.hasNext()) {
-            System.out.println(itSet.next());
+        while (iterator1.hasNext()) {
+            System.out.println(iterator1.next());
         }
-
-        System.out.println("================");
+        System.out.println();
 
         HashMap<String, Integer> map = new HashMap<>();
         map.put("유재석", 10);
         map.put("박명수", 5);
 
-//        map.iterator() // 제공되지 않음
-        Iterator<String> itMapKey = map.keySet().iterator();
+        // map.iterator() // 제공되지 않음
 
-        while (itMapKey.hasNext()) {
-            System.out.println(itMapKey.next());
+        Iterator<String> iteratorMap = map.keySet().iterator();
+
+        while (iteratorMap.hasNext()) {
+            System.out.println(iteratorMap.next());
         }
-        System.out.println("===============");
+        System.out.println();
 
-        Iterator<Integer> itValue = map.values().iterator();
+        Iterator<Integer> iteratorValue = map.values().iterator();
 
-        while (itValue.hasNext()) {
-            System.out.println(itValue.next());
+        while (iteratorValue.hasNext()) {
+            System.out.println(iteratorValue.next());
+        }
+        System.out.println();
+
+        Iterator<Map.Entry<String, Integer>> iteratorMap2 = map.entrySet().iterator();
+
+        while (iteratorMap2.hasNext()) {
+            System.out.println(iteratorMap2.next());
         }
 
-        System.out.println("==============");
-
-        Iterator<Map.Entry<String, Integer>> itMap = map.entrySet().iterator();
-
-        while (itMap.hasNext()) {
-            System.out.println(itMap.next());
-
-        }
     }
 }
